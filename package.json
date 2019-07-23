@@ -1,0 +1,27 @@
+{
+  "name": "robot-hackathon-starter-app",
+  "version": "1.0.0",
+  "description": "This is a template application to control your Robot Car using NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crosbie/robot-hackathon-starter-app-nodejs.git"
+  },
+  "author": "ecrosbie@redhat.com",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Crosbie/robot-hackathon-starter-app-nodejs/issues"
+  },
+  "homepage": "https://github.com/Crosbie/robot-hackathon-starter-app-nodejs#readme",
+  "dependencies": {
+    "async": "^3.1.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "lodash": "^4.17.14",
+    "request": "^2.88.0"
+  }
+}
