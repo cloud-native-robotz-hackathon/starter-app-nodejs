@@ -243,18 +243,44 @@ button {
 <body>
 
 <script>
-var noop =function(){};
 
-
-setInterval(function(){
-},5000);
 </script>
 
+
 <%
-var noop =function(){};
-var forward = api.forward;
-var backward = api.backward;
+var noop = function(){};
+console.log(api.forward);
 %>
+
+<script>
+var noop =function(){};
+var forward = <%-api.forward%>;
+var backward = <%-api.backward%>;
+var turnLeft = <%-api.turnLeft%>;
+var turnRight = <%-api.turnRight%>;
+var getDistance = <%-api.getDistance%>;
+var run = function(){
+	document.getElementById("result").innerHTML = "";
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("result").innerHTML = this.responseText;
+    }
+  };
+
+	xhttp.open("GET",'/run',true);
+	xhttp.send();
+}
+
+var dist = function(err,body){
+	if(err){
+		console.log('Error getting Distance',err);
+	} else {
+		alert('Distance: '+ body);
+	}
+}
+</script>
 
 <section class='container'>
           <hgroup>
@@ -268,12 +294,13 @@ var backward = api.backward;
               <h2>Manual Control</h2>
                 <p>These buttons will allow you to manually controller the Robot Car</p>
 
-                <button onclick="<%forward(5,noop)%>">Forward</button>
-                <button>Backward</button>
-                <button>Turn Left</button>
+                <button onclick="forward(5,noop)">Forward</button>
+                <button onclick="backward(5,noop)">Backward</button>
+                <button onclick="turnLeft(90,noop)">Turn Left</button>
+                <button onclick="turnRight(90,noop)">Turn Right</button>
+                <button onclick="getDistance(dist)">Get Distance</button>
 
-              	<h3>Latest Air quality reading</h3>
-				<pre id="ibmData">-- No recent data available -- </pre>
+
             </section>
 
           </section>
@@ -282,11 +309,10 @@ var backward = api.backward;
                 <h2>Automated Control</h2>
                 <p>This button will execute the code you have written to control the Robot Car</p>
 
-                <button class=btn-primary>Run your Code</button>
-
-              	<h3>Latest Air quality reading</h3>
-					<pre id="aquariumData">-- No recent data available --</pre>
+                <button onclick="run()"class="btn-primary">Run your Code</button>
           </section>
+
+          <pre id="result"></pre>
         </div>
 
         <footer>

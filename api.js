@@ -1,6 +1,5 @@
 var request = require('request');
 
-
 exports.getPower = function(cb) {
   request(url + '/power?user_key'+ apiKey,function(err,response,body){
     if(err){
@@ -57,7 +56,7 @@ exports.getRemoteStatus = function(cb) {
   });
 }
 
-exports.forward = function(length, cb) {
+exports.forward = function forward(length, cb) {
   request(url + '/forward/' + length + '?user_key'+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
@@ -127,4 +126,4 @@ exports.head = function(degrees, cb) {
   });
 }
 
-
+this.forward = exports.forward;
