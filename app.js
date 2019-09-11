@@ -1,15 +1,14 @@
 
 var async = require('async');
 var tasks = require('./run.js').tasks;
-var api = require('./test_api.js');
+var api = require('./api.js');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
 /// Global Variables
-apiKey = "{Your-3scale-api-key}";
-url = "https://api-2445582274375.staging.gw.apicast.io:443/api/robot"; // URL from 3Scale without / at the end. e.g. "https://api-2445582274375.staging.gw.apicast.io:443/api/robot"
-
+apiKey = "ava";
+url = "https://api-2445582274375.production.gw.apicast.io:443/api/robot"; // URL from 3Scale without / at the end. e.g. "https://api-2445582274375.staging.gw.apicast.io:443/api/robot"
 
 /***************************************
 // execute tasks

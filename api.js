@@ -1,7 +1,8 @@
 var request = require('request');
+exports.request = request;
 
 exports.getPower = function(cb) {
-  request(url + '/power?user_key'+ apiKey,function(err,response,body){
+  request(url + '/power?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -15,7 +16,7 @@ exports.getPower = function(cb) {
 }
 
 exports.getDistance = function(cb) {
-  request(url + '/distance?user_key'+ apiKey,function(err,response,body){
+  request(url + '/distance?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -29,7 +30,7 @@ exports.getDistance = function(cb) {
 }
 
 exports.getStatus = function(cb) {
-  request(url + '/status?user_key'+ apiKey,function(err,response,body){
+  request(url + '/status?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -43,7 +44,7 @@ exports.getStatus = function(cb) {
 }
 
 exports.getRemoteStatus = function(cb) {
-  request(url + '/remote_status?user_key'+ apiKey,function(err,response,body){
+  request(url + '/remote_status?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -57,12 +58,14 @@ exports.getRemoteStatus = function(cb) {
 }
 
 exports.forward = function forward(length, cb) {
-  request(url + '/forward/' + length + '?user_key'+ apiKey,function(err,response,body){
+  console.log(url + '/forward/' + length + '?user_key='+ apiKey);
+  request(url + '/forward/' + length + '?user_key='+ apiKey,{method:"POST"},function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
     } else if(!response || response.statusCode > 299){
       console.error('HTTP error',response.statusCode);
+      console.error(response.body);
       cb(response.statusCode);
     } else {
       cb(null,body)
@@ -71,7 +74,7 @@ exports.forward = function forward(length, cb) {
 }
 
 exports.backward = function(length, cb) {
-  request(url + '/backward/' + length + '?user_key'+ apiKey,function(err,response,body){
+  request(url + '/backward/' + length + '?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -85,7 +88,7 @@ exports.backward = function(length, cb) {
 }
 
 exports.turnRight = function(degrees, cb) {
-  request(url + '/right/' + degrees + '?user_key'+ apiKey,function(err,response,body){
+  request(url + '/right/' + degrees + '?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -99,7 +102,7 @@ exports.turnRight = function(degrees, cb) {
 }
 
 exports.turnLeft = function(degrees, cb) {
-  request(url + '/left/' + degrees + '?user_key'+ apiKey,function(err,response,body){
+  request(url + '/left/' + degrees + '?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -113,7 +116,7 @@ exports.turnLeft = function(degrees, cb) {
 }
 
 exports.head = function(degrees, cb) {
-  request(url + '/servo/' + degrees + '?user_key'+ apiKey,function(err,response,body){
+  request(url + '/servo/' + degrees + '?user_key='+ apiKey,function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
