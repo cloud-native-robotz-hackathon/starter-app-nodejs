@@ -254,33 +254,40 @@ console.log(api.forward);
 
 <script>
 var noop =function(){};
-var request = <%-api.request%>;
-var forward = <%-api.forward%>;
-var backward = <%-api.backward%>;
-var turnLeft = <%-api.turnLeft%>;
-var turnRight = <%-api.turnRight%>;
-var getDistance = <%-api.getDistance%>;
-var run = function(){
-	document.getElementById("result").innerHTML = "";
-	var xhttp = new XMLHttpRequest();
+function request(url,expectResponse){
+  document.getElementById("result").innerHTML = "";
+  var xhttp = new XMLHttpRequest();
 
 	xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("result").innerHTML = this.responseText;
+      console.log('Call to '+url+ ' successfull');
+      if(expectResponse){
+        document.getElementById("result").innerHTML = this.responseText;
+      }
     }
   };
-
-	xhttp.open("GET",'/run',true);
+	xhttp.open("GET",'/'+url,true);
 	xhttp.send();
 }
-
-var dist = function(err,body){
-	if(err){
-		console.log('Error getting Distance',err);
-	} else {
-		alert('Distance: '+ body);
-	}
+var forward = function(dist){
+  request('forward/'+dist);
 }
+var backward = function(dist){
+  request('backward/'+dist);
+}
+var turnLeft = function(degrees){
+  request('turnLeft/'+degrees);
+}
+var turnRight = function(degrees){
+  request('turnRight/'+degrees);
+}
+var getDistance = function(){
+  request('getDistance',true);
+}
+var run = function(){
+	request('run',true);
+}
+
 </script>
 
 <section class='container'>
@@ -299,7 +306,7 @@ var dist = function(err,body){
                 <button onclick="backward(5,noop)">Backward</button>
                 <button onclick="turnLeft(90,noop)">Turn Left</button>
                 <button onclick="turnRight(90,noop)">Turn Right</button>
-                <button onclick="getDistance(dist)">Get Distance</button>
+                <button onclick="getDistance(noop)">Get Distance</button>
 
 
             </section>

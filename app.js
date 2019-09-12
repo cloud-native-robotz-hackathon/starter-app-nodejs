@@ -42,6 +42,40 @@ app.get('/', function (req, res) {
   });
 });
 
+app.get('/forward/:length', function(req,res){
+	var length = req.params.length
+	api.forward(length,function(){
+		res.json({status:"ok"});
+	})
+});
+app.get('/backward/:length', function(req,res){
+	var length = req.params.length
+	api.backward(length,function(){
+		res.json({status:"ok"});
+	})
+});
+app.get('/turnLeft/:degrees', function(req,res){
+	var degrees = req.params.degrees
+	api.turnLeft(degrees,function(){
+		res.json({status:"ok"});
+	})
+});
+app.get('/turnRight/:degrees', function(req,res){
+	var degrees = req.params.degrees
+	api.turnRight(degrees,function(){
+		res.json({status:"ok"});
+	})
+});
+app.get('/getDistance', function(req,res){
+	api.getDistance(function(err,data){
+		res.json({distance:data});
+	})
+});
+
+app.get('/sim', function(req,res){
+	
+})
+
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);

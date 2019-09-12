@@ -23,8 +23,8 @@ Use this example to build your
 ******************************************/
 
 exports.tasks = [
-	// your code
-
+  // your code
+  
 	function(cb){
 		api.forward(5,cb)
 	},
