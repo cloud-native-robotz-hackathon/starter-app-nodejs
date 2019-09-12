@@ -74,7 +74,7 @@ exports.forward = function forward(length, cb) {
 }
 
 exports.backward = function(length, cb) {
-  request(url + '/backward/' + length + '?user_key='+ apiKey,function(err,response,body){
+  request(url + '/backward/' + length + '?user_key='+ apiKey,{method:"POST"},function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -88,7 +88,7 @@ exports.backward = function(length, cb) {
 }
 
 exports.turnRight = function(degrees, cb) {
-  request(url + '/right/' + degrees + '?user_key='+ apiKey,function(err,response,body){
+  request(url + '/right/' + degrees + '?user_key='+ apiKey,{method:"POST"},function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -102,7 +102,7 @@ exports.turnRight = function(degrees, cb) {
 }
 
 exports.turnLeft = function(degrees, cb) {
-  request(url + '/left/' + degrees + '?user_key='+ apiKey,function(err,response,body){
+  request(url + '/left/' + degrees + '?user_key='+ apiKey,{method:"POST"},function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
@@ -116,7 +116,7 @@ exports.turnLeft = function(degrees, cb) {
 }
 
 exports.head = function(degrees, cb) {
-  request(url + '/servo/' + degrees + '?user_key='+ apiKey,function(err,response,body){
+  request(url + '/servo/' + degrees + '?user_key='+ apiKey,{method:"POST"},function(err,response,body){
     if(err){
       console.error('Network Error',err);
       cb(err);
