@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 /// Global Variables
 apiKey = "ava";
-url = "https://api-2445582274375.production.gw.apicast.io:443/api/robot"; // URL from 3Scale without / at the end. e.g. "https://api-2445582274375.staging.gw.apicast.io:443/api/robot"
+url = "3scale-URL"; // URL from 3Scale without / at the end. e.g. "https://api-2445582274375.staging.gw.apicast.io:443/api/robot2"
 
 /***************************************
 // execute tasks
