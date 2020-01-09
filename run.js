@@ -28,7 +28,7 @@ exports.tasks = [
 	function(cb){
 		api.forward(5,cb)
 	},
-	function(arg1,cb){
+	/*function(arg1,cb){
 		api.getDistance(cb)
 	},
 	function(distance,cb){
@@ -37,7 +37,7 @@ exports.tasks = [
 		} else {
 			return cb('End!');
 		}
-	}
+	}*/
 
 	//end of your code
 ];
