@@ -3,10 +3,10 @@ metadata:
  generateName: nodejs-
 projects:
  -
-  name: nodejs-web-app
+  name: nodejs-starter-app
   source:
    type: git
-   location: 'https://github.com/che-samples/web-nodejs-sample.git'
+   location: 'https://github.com/cloud-native-robotz-hackathon/starter-app-nodejs.git'
 components:
  -
   type: chePlugin
