@@ -1,0 +1,24 @@
+apiVersion: 1.0.0
+metadata:
+ generateName: nodejs-
+projects:
+ -
+  name: nodejs-web-app
+  source:
+   type: git
+   location: 'https://github.com/che-samples/web-nodejs-sample.git'
+components:
+ -
+  type: chePlugin
+  id: che-incubator/typescript/latest
+  memoryLimit: 512Mi
+ -
+  type: dockerimage
+  alias: nodejs
+  image: 'quay.io/grieger/che7-node10-oc-odo-ocp4-stack'
+  memoryLimit: 512Mi
+  endpoints:
+   -
+    name: nodejs
+    port: 3000
+  mountSources: true
