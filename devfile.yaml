@@ -3,7 +3,7 @@ metadata:
  generateName: nodejs-
 projects:
  -
-  name: nodejs-starter-app
+  name: starter-app-nodejs
   source:
    type: git
    location: 'https://github.com/cloud-native-robotz-hackathon/starter-app-nodejs.git'
