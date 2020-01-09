@@ -18,8 +18,8 @@ Your code will be executed in a waterfall fashion
 so that you can response to status updates from the robot.
 This will allow you to read distance and adjust your behaviour accordingly
 
-Below are an example 3 steps, forward, backward, getDistance.
-Use this example to build your
+Below are example steps for forward and getDistance.
+Use this example to build your own robot logic
 ******************************************/
 
 exports.tasks = [
